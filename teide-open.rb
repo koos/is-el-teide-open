@@ -33,7 +33,7 @@ get '/' do
   end
 
   @last_tweet = Tweet.last
-  @analytics = ENV['analytics'] || settings.analytics
+  @analytics = ENV['ANALYTICS'] || settings.analytics
 
   haml :index, locals: {last_tweet: @last_tweet}
 end
