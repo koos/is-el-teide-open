@@ -1,0 +1,6 @@
+- if @last_tweet.published_at < Time.now - 1.day
+  %h1 OPEN
+  = "Last tweet: #{@last_tweet.text}; #{@last_tweet.published_at}"
+- else
+  %h2 CLOSED
+  = "closed - Last tweet: #{@last_tweet.text}; #{@last_tweet.published_at}"
