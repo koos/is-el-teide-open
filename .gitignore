@@ -1,2 +1,3 @@
 config/database.yml
 .byebug_history
+config/twitter.yml

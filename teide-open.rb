@@ -4,13 +4,16 @@ require 'byebug'
 require 'sinatra/activerecord'
 require './config/environments' #database configuration
 require './models/tweet'
+require "sinatra/config_file"
+
+config_file './config/twitter.yml'
 
 def twitter
 	client = Twitter::REST::Client.new do |config|
-  	config.consumer_key        = "tCk7XBOTRF4QcCKsRNE7YN1Dw"
-  	config.consumer_secret     = "KcIeW9fI07xfkYUUSaaFBUPiy8gg9PPjO2Fqt5GCtpmSO78B01"
- 	 	config.access_token        = "1321591-yw8rVXTZGf9kn60jAqKZsVkGdriSMxjN6iTaQ1GgRQ"
-  	config.access_token_secret = "GRXvrFX6ps9AnOlvQUn4GSoGdnkMccHBzyiKg6b3ssqzV"
+  	config.consumer_key        = ENV['CONSUMER_KEY']        || settings.consumer_key
+  	config.consumer_secret     = ENV['CONSUMER_SECRET']     || settings.consumer_secret
+ 	 	config.access_token        = ENV['ACCESS_TOKEN']        || settings.access_token
+  	config.access_token_secret = ENV['ACCESS_TOKEN_SECRET'] || settings.access_token_secret
   end
 end
 
