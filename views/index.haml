@@ -1,15 +1,37 @@
-- if @last_tweet.published_at < Time.now - 1.day
-  %h1 OPEN
-  = "Last tweet: #{@last_tweet.text}; #{@last_tweet.published_at}"
-- else
-  %h2 CLOSED
-  = "closed - Last tweet: #{@last_tweet.text}; #{@last_tweet.published_at}"
+%html.no-js.wf-karla-n4-active.wf-active
+  %head
+    %link{rel: "stylesheet", type:"text/css", href: url("/assets/stylesheets/style.css")}
+  %body.index
+    .o-app
+      .header.o-app__header
+        .o-container
+        .o-row
+          .o-col.is-left
+            %a{href: "/", class: "c-brand"}
+              Is El Teide Open?
+          .o-col.is-right
+            %ul.c-list.is-right
+              %li.c-item="lorem"
+              %li.c-item="lorem"
+              %li.c-item="lorem"
+      .main.o-app__content
+        - if @last_tweet.published_at < Time.now - 1.day
+          %h1 Probably OPEN
+          %p
+            = "Last tweet: #{@last_tweet.text}; #{@last_tweet.published_at}"
+          %p
+            Better check https://www.volcanoteide.com/en for details
+        - else
+          %h2 CLOSED
+          = "closed - Last tweet: #{@last_tweet.text}; #{@last_tweet.published_at}"
+      .footer.o-app__footer
+        %a{href: "http://railslove.com", class: "c-brand"}
+          A Railslove Project    
+  :javascript
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-:javascript
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', "#{@analytics}", 'auto');
-  ga('send', 'pageview');
+    ga('create', "#{@analytics}", 'auto');
+    ga('send', 'pageview');
