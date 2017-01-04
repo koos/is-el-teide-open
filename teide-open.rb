@@ -7,16 +7,16 @@ require './models/tweet'
 require "sinatra/config_file"
 
 config_file './config/twitter.yml'
+config_file './config/analytics.yml'
 
 def twitter
 	client = Twitter::REST::Client.new do |config|
-  	config.consumer_key        = ENV['CONSUMER_KEY']        || settings.consumer_key
-  	config.consumer_secret     = ENV['CONSUMER_SECRET']     || settings.consumer_secret
- 	 	config.access_token        = ENV['ACCESS_TOKEN']        || settings.access_token
-  	config.access_token_secret = ENV['ACCESS_TOKEN_SECRET'] || settings.access_token_secret
+  	config.consumer_key        = settings.consumer_key
+  	config.consumer_secret     = settings.consumer_secret
+ 	 	config.access_token        = settings.access_token
+  	config.access_token_secret = settings.access_token_secret
   end
 end
-
 
 get '/' do
 
