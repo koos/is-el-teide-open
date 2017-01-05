@@ -1,0 +1,78 @@
+body{
+  background: url('/teide.jpg') no-repeat center center / cover;
+}
+
+.o-app{
+  width: 1280px;
+  margin: 0 auto;
+}
+
+.header{
+  font-size: 36px;
+  margin: 20px 0;
+  color: white;
+  text-align: center;
+}
+
+.main{
+  background: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  border: 3px solid white;
+  width: 600px;
+  margin: 100px auto 40px;
+}
+
+.main a{
+  color: white;
+  font-weight: bold;
+}
+
+h2, h3, h4{
+  margin-top: 0;
+  text-align: center;
+}
+
+
+
+.footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  background: rgba(0,0,0,0.8);
+  padding: 10px;
+  color: white;
+}
+.footer a{
+  color: white;
+}
+.footer-links{
+  width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  height: 20px;
+}
+.c-sponsor{
+  position: absolute;
+  right: 0;
+}
+
+@media (max-width: 600px) {
+  .o-app, .footer-links{
+    width: 100%;
+  }
+  .main{
+    width: 80%;
+    margin-left: 5%;
+    margin-top: 30px;
+  }
+  .footer-links{
+    height: auto;
+    text-align: center;
+  }
+  .c-sponsor{
+    position: static;
+    display: block;
+    margin-bottom: 10px;
+  }
+}
